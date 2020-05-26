@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-mariadb
+  labels:
+    app: deploymariadb
+spec:
+  selector:
+    matchLabels:
+      app: deploymariadb
+  template:
+    metadata:
+      labels:
+        app: deploymariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: mariadb:10.3.8
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: souroot#1423
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: UserBlog      
+        - name: MYSQL_PASSWORD
+          value: PwdBlog            
+        volumeMounts:
+          - mountPath: "/var/lib/mysql"
+            name: mariadb-volume
+      volumes:
+        - name: mariadb-volume
+          persistentVolumeClaim:
+              claimName: mariadb-managed-disk
