@@ -26,7 +26,14 @@ spec:
         - name: MYSQL_USER
           value: UserBlog      
         - name: MYSQL_PASSWORD
-          value: PwdBlog            
+          value: PwdBlog   
+        resources:
+            requests:
+              cpu: 500m
+              memory: 128M
+            limits:
+              cpu: 1000m
+              memory: 512M                   
         volumeMounts:
           - mountPath: "/var/lib/mysql"
             name: mariadb-volume

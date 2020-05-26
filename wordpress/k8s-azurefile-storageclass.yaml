@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
