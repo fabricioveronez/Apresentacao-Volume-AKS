@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata: 
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: fabricioveronez/pedelogo:beta-03
+        ports:
+        - containerPort: 80
+        resources: {}
+        env:
+          - name: Mongo__Host
+            value: "mongo-service"
+          - name: Mongo__User
+            value: "mongouser"
+          - name: Mongo__Password
+            value: "mongopwd"
+          - name: Mongo__Port
+            value: "27017"                                    
+          - name: Mongo__DataBase
+            value: admin            

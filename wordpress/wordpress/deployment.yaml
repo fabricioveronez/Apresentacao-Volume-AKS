@@ -5,12 +5,12 @@ metadata:
 spec:  
   selector:
     matchLabels:
-      app: deploywordpress
+      app: wordpress
   replicas: 1
   template:
     metadata:
       labels:
-        app: deploywordpress
+        app: wordpress
     spec:
       containers:
       - name: wordpress
@@ -37,5 +37,5 @@ spec:
       volumes:
         - name: wpvolume
           persistentVolumeClaim:
-              claimName: wordpress-azurefile
+              claimName: wordpress-pvc
 

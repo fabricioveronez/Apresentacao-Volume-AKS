@@ -2,16 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-mariadb
-  labels:
-    app: deploymariadb
 spec:
   selector:
     matchLabels:
-      app: deploymariadb
+      app: mariadb
   template:
     metadata:
       labels:
-        app: deploymariadb
+        app: mariadb
     spec:
       containers:
       - name: mariadb
@@ -40,4 +38,4 @@ spec:
       volumes:
         - name: mariadb-volume
           persistentVolumeClaim:
-              claimName: mariadb-managed-disk
+              claimName: mariadb-pvc

@@ -4,7 +4,7 @@ metadata:
   name: service-mariadb
 spec:
   selector:
-    app: deploymariadb
+    app: mariadb
   ports:
   - port: 3306
     targetPort: 3306

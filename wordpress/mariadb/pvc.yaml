@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: wordpress-azurefile
+  name: mariadb-pvc
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: azurefile
+  - ReadWriteOnce
+  storageClassName: default
   resources:
     requests:
       storage: 5Gi
